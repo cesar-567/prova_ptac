@@ -12,8 +12,7 @@ function App() {
       ideiaEditando={ideiaEditando}
         onTerminarEdicao={() => setIdeiaEditando(null)}/>
       <ListarIdeias
-      onEditar={(ideia) => setIdeiaEditando(ideia)}
-        onExcluir={(id) => console.log('excluir', id) /* pendente */}/>
+      onEditar={(ideia) => setIdeiaEditando(ideia)}/>
     </>
   )
 }
