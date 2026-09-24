@@ -5,6 +5,7 @@ export default function ListarIdeias({ onEditar, onExcluir }){
     const [carregando, setCarregando] = useState(true)
     const [erro, setErro] = useState(null)
     const [excluindoId, setExcluindoId] = useState(null)
+    const [concluida, setConcluida] = useState(false)
 
     useEffect(() => {
         const controle = new AbortController()  
@@ -47,6 +48,8 @@ export default function ListarIdeias({ onEditar, onExcluir }){
         }
     }
 
+   
+
     if (carregando) return <p>Carregando...</p>
     if (erro)     return <p>Erro: {erro}</p>
     if (ideias.length === 0) return <p>Nenhuma ideia encontrada.</p>
@@ -65,6 +68,9 @@ export default function ListarIdeias({ onEditar, onExcluir }){
                       disabled={excluindoId === ideia.id}
                     >
                       {excluindoId === ideia.id ? 'Excluindo...' : 'Excluir'}
+                    </button>
+                    <button onClick={()=> setConcluida(true)}>
+                        {concluida === true ? "concluida": "pendente"}
                     </button>
                 </div>
             </li>
